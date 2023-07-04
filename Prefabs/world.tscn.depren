@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://ci2fgcnywe4tf"]
+
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_f1jwr"]
+[ext_resource type="PackedScene" uid="uid://kgvundawexsp" path="res://Prefabs/boat.tscn" id="2_fvfx6"]
+[ext_resource type="Script" path="res://Scripts/entityManager.gd" id="3_608sa"]
+[ext_resource type="Texture2D" uid="uid://crhqa8yxut6pm" path="res://Assets/walls.png" id="3_prkfu"]
+[ext_resource type="PackedScene" uid="uid://bb827kor5qsx7" path="res://Prefabs/cannon.tscn" id="4_2t5p4"]
+[ext_resource type="Script" path="res://Scripts/gameManager.gd" id="5_cgsd1"]
+[ext_resource type="PackedScene" uid="uid://clfudva3bujw6" path="res://Prefabs/hud.tscn" id="6_h4bfs"]
+[ext_resource type="Texture2D" uid="uid://cx2l3kxvcj0n4" path="res://Assets/water.tres" id="7_b1k7f"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17khp"]
+texture = ExtResource("7_b1k7f")
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gkx13"]
+texture = ExtResource("3_prkfu")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 3, 3, 3, 3, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 3, 8, 3, 8, -8, -8, -8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 3, -3, 3, -3, 8, 8, 8, 8, -8)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.5, -8, -2.5, 8, 8, 8, 8, -8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, -8, 3, 8, -8, 8, -8, -8)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(3, -8, 3, -3, 8, -3, 8, 7.5, 8, 8, -8, 8, -8, -8)
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3, 8, -3, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3, -8, -3, -3, -8, -3, -8, 8, 8, 8, 8, -8)
+
+[sub_resource type="TileSet" id="TileSet_akavl"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_17khp")
+sources/9 = SubResource("TileSetAtlasSource_gkx13")
+
+[node name="world" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_f1jwr")
+player = NodePath("Boat")
+metadata/_edit_group_ = true
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(6, 6)
+tile_set = SubResource("TileSet_akavl")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 9, 0, 65536, 9, 1, 131072, 9, 1, 196608, 9, 1, 262144, 9, 1, 327680, 9, 2, 1, 65545, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 327681, 65545, 2, 2, 65545, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 327682, 65545, 2, 3, 65545, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 327683, 65545, 2, 4, 65545, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 327684, 65545, 2, 5, 65545, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 327685, 65545, 2, 6, 65545, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 327686, 65545, 2, 7, 65545, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 327687, 65545, 2, 8, 65545, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 327688, 65545, 2, 9, 131081, 0, 65545, 131081, 1, 131081, 131081, 1, 196617, 131081, 1, 262153, 131081, 1, 327689, 131081, 2)
+
+[node name="Boat" parent="." instance=ExtResource("2_fvfx6")]
+collision_layer = 1
+collision_mask = 3
+lock_rotation = true
+
+[node name="EntityManager" type="Node" parent="."]
+script = ExtResource("3_608sa")
+entities = {
+"pirateBoat": ExtResource("4_2t5p4")
+}
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("5_cgsd1")
+
+[node name="HUD" parent="." instance=ExtResource("6_h4bfs")]
+
+[connection signal="deathEvent" from="Boat" to="GameManager" method="_on_boat_death_event"]

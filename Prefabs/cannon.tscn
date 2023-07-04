@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb827kor5qsx7"]
+
+[ext_resource type="Script" path="res://Scripts/cannon.gd" id="1_pt577"]
+[ext_resource type="PackedScene" uid="uid://drjhgq6vdghuy" path="res://Prefabs/projectile.tscn" id="2_kc21p"]
+[ext_resource type="Texture2D" uid="uid://5o3qs73lpo00" path="res://Assets/cannon_handle.png" id="3_i0yba"]
+[ext_resource type="Texture2D" uid="uid://cc7vvjwvnkcok" path="res://Assets/cannon.png" id="4_hb24v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qeiym"]
+size = Vector2(16, 16)
+
+[node name="cannon" type="Area2D" groups=["mobs"]]
+process_mode = 1
+script = ExtResource("1_pt577")
+projectile = ExtResource("2_kc21p")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qeiym")
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="HandleSprite" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("3_i0yba")
+
+[node name="CannonSprite" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("4_hb24v")
+offset = Vector2(3, 0)
+
+[node name="ShootPoint" type="Node2D" parent="CannonSprite"]
+position = Vector2(12.065, 0)
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

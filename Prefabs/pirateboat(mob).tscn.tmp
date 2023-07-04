@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://br85ym81jvxdc"]
+
+[ext_resource type="Texture2D" uid="uid://c4lm53cty6ta8" path="res://Assets/Temp/Square.png" id="1_djr0h"]
+[ext_resource type="Script" path="res://Scripts/pirateboat(mob).gd" id="1_ts5ps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qeiym"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3msfj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_djr0h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="pirateboat(Mob)" type="Area2D"]
+modulate = Color(1, 0.258824, 0.258824, 1)
+script = ExtResource("1_ts5ps")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qeiym")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3msfj")

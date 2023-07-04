@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6hmqmoyrrxn1"
+path="res://.godot/imported/UIAlert_Notifications Vocal Cursed Loot Hit Dark Spooky Low 01_ESM_GT.wav-1e461e05f6468b37324f73517c53abcf.sample"
+
+[deps]
+
+source_file="res://Audio/UIAlert_Notifications Vocal Cursed Loot Hit Dark Spooky Low 01_ESM_GT.wav"
+dest_files=["res://.godot/imported/UIAlert_Notifications Vocal Cursed Loot Hit Dark Spooky Low 01_ESM_GT.wav-1e461e05f6468b37324f73517c53abcf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

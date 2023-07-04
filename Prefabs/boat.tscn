@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://kgvundawexsp"]
+
+[ext_resource type="Script" path="res://Scripts/boat.gd" id="1_s3wc6"]
+[ext_resource type="Texture2D" uid="uid://b1i7eo668652a" path="res://Assets/boat.png" id="2_64db0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7nhry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_64db0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7mi8"]
+size = Vector2(104, 32)
+
+[node name="Boat (Player)" type="RigidBody2D"]
+process_mode = 1
+collision_layer = 3
+mass = 0.2
+inertia = 1.0
+gravity_scale = 0.0
+linear_damp_mode = 1
+script = ExtResource("1_s3wc6")
+maxSpeed = 750.0
+acceleration = 500.0
+linearDrag = 10.0
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_7nhry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_x7mi8")

@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://cx2l3kxvcj0n4"]
+
+[ext_resource type="Texture2D" uid="uid://3amc6prbwqu0" path="res://Assets/water1.png" id="1_ng0pi"]
+[ext_resource type="Texture2D" uid="uid://clhuy213jxyxy" path="res://Assets/water2.png" id="2_oiadn"]
+[ext_resource type="Texture2D" uid="uid://ip57x2rbfpsd" path="res://Assets/water3.png" id="3_2vy0f"]
+[ext_resource type="Texture2D" uid="uid://p58dg633spoj" path="res://Assets/water4.png" id="4_pds6w"]
+
+[resource]
+frames = 4
+speed_scale = 3.0
+frame_0/texture = ExtResource("1_ng0pi")
+frame_1/texture = ExtResource("2_oiadn")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_2vy0f")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_pds6w")
+frame_3/duration = 1.0
